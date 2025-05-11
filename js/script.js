@@ -1,10 +1,12 @@
+// Typing animation
 var typed = new Typed('.typing', {
-    strings: ["Software Developer" ],
+    strings: ["Software Developer"],
     typeSpeed: 110,
     BackSpeed: 60,
     loop: true
-})
+});
 
+// Active navigation items
 const navItems = document.querySelectorAll('.nav-item');
 
 navItems.forEach(item => {
@@ -14,6 +16,7 @@ navItems.forEach(item => {
     });
 });
 
+// Intersection Observer for sections
 document.addEventListener('DOMContentLoaded', function () {
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('.nav-item');
@@ -44,28 +47,53 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Initialize EmailJS with your public key
+(function() {
+    emailjs.init('cuE1rdG5Vm10kiSMe'); // Replace with your actual public key
+})();
 
-// (function() {
-//     emailjs.init('GWbNmnXzdkXtyMcIM'); // Replace 'YOUR_USER_ID' with your EmailJS user ID
-// })();
+// Contact form submission
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Show loading state
+    const submitBtn = this.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Sending...';
+    
+    // Get form values
+    const formData = {
+        from_name: document.getElementById('name').value,
+        from_email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+    };
+    
+    // Send email
+    emailjs.send('service_nux5o4t', 'template_umodood', formData)
+        .then(function(response) {
+            alert('Message sent successfully!');
+            document.getElementById('contact-form').reset();
+        }, function(error) {
+            alert('Failed to send message. Please try again later.');
+            console.error('EmailJS error:', error);
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Send Message';
+        });
+});
 
-// // Function to send email
-// function sendEmail(event) {
-//     event.preventDefault();
+// CV Download functionality
+document.querySelector('.outlined-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const link = document.createElement('a');
+    link.href = this.getAttribute('href');
+    link.download = this.getAttribute('download') || 'Sunikhil_Thakur_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
     
-//     var templateParams = {
-//         name: document.getElementById('name').value,
-//         email: document.getElementById('email').value,
-//         subject: document.getElementById('subject').value,
-//         message: document.getElementById('message').value
-//     };
-    
-//     emailjs.send('service_m7y71lj', 'YOUR_TEMPLATE_ID', templateParams)
-//         .then(function(response) {
-//             console.log('SUCCESS!', response.status, response.text);
-//             alert('Email sent successfully!');
-//         }, function(error) {
-//             console.log('FAILED...', error);
-//             alert('Failed to send email.');
-//         });
-// }
+    // Optional: Track download event
+    console.log('CV downloaded');
+});

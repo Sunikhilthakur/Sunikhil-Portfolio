@@ -336,8 +336,8 @@ h3.my-profission{
     width: 80px;
     right: -40px;
     bottom: 147px;
-    border-bottom: 10px solid var(--skin-color);
-    border-right: 10px solid var(--skin-color);
+    /* border-bottom: 10px solid var(--skin-color);
+    border-right: 10px solid var(--skin-color); */
 }
 
 .home-img::before {
@@ -347,29 +347,32 @@ h3.my-profission{
     width: 80px;
     left: 20px;
     top: 0px;
-    border-top: 10px solid var(--skin-color);
-    border-left: 10px solid var(--skin-color);
+    /* border-top: 10px solid var(--skin-color);
+    border-left: 10px solid var(--skin-color); */
 }
 
 .home .home-img img {
     position: relative;
+    top: 4%;
+    left: 2%;
     z-index: 2;
-    height: 400px;
+    height: 450px;
     margin: auto;
-    border-radius: 5px;
+    border-radius: 50%;
 }
 
 .half-circle {
     position: absolute;
-    top: 47.4%;
-    left: 52.8%;
+    top: 42%;
+    left: 54%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    width: 423.5px;
-    height: 225px;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
     background-color: var(--skin-color);
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
+    /* border-top-left-radius: 200px;
+    border-top-right-radius: 200px; */
 }
 
 .about .about-content{
