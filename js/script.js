@@ -83,17 +83,27 @@ document.getElementById('contact-form').addEventListener('submit', function(even
             submitBtn.innerHTML = 'Send Message';
         });
 });
-
-// CV Download functionality
 document.querySelector('.outlined-btn').addEventListener('click', function(e) {
     e.preventDefault();
-    const link = document.createElement('a');
-    link.href = this.getAttribute('href');
-    link.download = this.getAttribute('download') || 'Sunikhil_Thakur_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Optional: Track download event
-    console.log('CV downloaded');
+    const pdfUrl = this.getAttribute('href');
+    const downloadName = this.getAttribute('download') || 'Sunikhil_Thakur_Resume.pdf';
+
+    // Open PDF in a new tab
+    const newTab = window.open(pdfUrl, '_blank');
+
+    // After the tab loads, trigger download but DO NOT close the tab
+    newTab.onload = function() {
+        const script = newTab.document.createElement('script');
+        script.text = `
+            // Create a hidden download link
+            var a = document.createElement('a');
+            a.href = '${pdfUrl}';
+            a.download = '${downloadName}';
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();  // Trigger download
+            document.body.removeChild(a);  // Remove the link
+        `;
+        newTab.document.body.appendChild(script);
+    };
 });

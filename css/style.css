@@ -353,7 +353,7 @@ h3.my-profission{
 
 .home .home-img img {
     position: relative;
-    top: 4%;
+    top: 7%;
     left: 2%;
     z-index: 2;
     height: 450px;
@@ -363,12 +363,12 @@ h3.my-profission{
 
 .half-circle {
     position: absolute;
-    top: 42%;
+    top: 40%;
     left: 54%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    height: 400px;
-    width: 400px;
+    height: 450px;
+    width: 450px;
     border-radius: 50%;
     background-color: var(--skin-color);
     /* border-top-left-radius: 200px;
@@ -833,4 +833,49 @@ h3.my-profission{
         flex: 0 0 100%;
         max-width: 100%;
     }
+}
+
+/* Project Links Styling */
+.project-links {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    padding: 0 10px 15px;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    background: var(--skin-color);
+    color: white;
+    border-radius: 30px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.project-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.project-link i {
+    margin-right: 5px;
+}
+
+.portfolio-item h2 {
+    color: var(--text-black-900);
+    text-align: center;
+    font-size: 20px;
+    margin: 15px 0 10px;
+}
+
+.portfolio-item-inner {
+    transition: all 0.3s ease;
+}
+
+.portfolio-item-inner:hover {
+    transform: translateY(-10px);
 }
