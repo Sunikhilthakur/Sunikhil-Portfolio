@@ -353,22 +353,22 @@ h3.my-profission{
 
 .home .home-img img {
     position: relative;
-    top: 7%;
-    left: 2%;
+    top: 10%;
+    left: 4%;
     z-index: 2;
-    height: 450px;
+    height: 400px;
     margin: auto;
     border-radius: 50%;
 }
 
 .half-circle {
     position: absolute;
-    top: 40%;
+    top: 39%;
     left: 54%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    height: 450px;
-    width: 450px;
+    height: 400px;
+    width: 400px;
     border-radius: 50%;
     background-color: var(--skin-color);
     /* border-top-left-radius: 200px;
